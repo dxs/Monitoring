@@ -5,9 +5,69 @@
     xmlns:local="using:Monitoring"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+	<Page.Resources>
+		<Style TargetType="TextBlock" x:Key="TitleTextBlock">
+			<Setter Property="FontSize" Value="40" />
+			<Setter Property="HorizontalAlignment" Value="Center" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="TextWrapping" Value="Wrap" />
+		</Style>
+	</Page.Resources>
+	
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		
+		<Grid Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+				
+			<!--TMP-->
+			<Grid Grid.Column="0" Margin="10">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<TextBlock Text="Temp" Grid.Row="0" Style="{StaticResource TitleTextBlock}"/>
 
+				<controls:RadialGauge Grid.Row="1" x:Name="TMPGauge" Value="20" Minimum="0" Maximum="100" StepSize="1" IsInteractive="False" TickSpacing="10" MinAngle="210" MaxAngle="148" Unit="C°" TickBrush="Gainsboro"  ScaleWidth="26" NeedleWidth="5" TickLength="18" UnitBrush="Black" ValueBrush="Black"/>
+			</Grid>
+
+			<!--CPU-->
+			<Grid Grid.Column="1" Margin="10">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<TextBlock Text="CPU" Grid.Row="0" Style="{StaticResource TitleTextBlock}"/>
+				
+				<controls:RadialGauge Grid.Row="1" x:Name="CPUGauge" Value="20" Minimum="0" Maximum="100" StepSize="1" IsInteractive="False" TickSpacing="10" MinAngle="210" MaxAngle="148" Unit="C°" TickBrush="Gainsboro"  ScaleWidth="26" NeedleWidth="5" TickLength="18" UnitBrush="Black" ValueBrush="Black"/>
+			</Grid>
+
+		<!--RAM-->
+			<Grid Grid.Column="2" Margin="10">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<TextBlock Text="RAM" Grid.Row="0" Style="{StaticResource TitleTextBlock}"/>
+				
+				<controls:RadialGauge Grid.Row="1" x:Name="RAMGauge" Value="20" Minimum="0" Maximum="100" StepSize="1" IsInteractive="False" TickSpacing="10" MinAngle="210" MaxAngle="148" Unit="C°" TickBrush="Gainsboro"  ScaleWidth="26" NeedleWidth="5" TickLength="18" UnitBrush="Black" ValueBrush="Black"/>
+			</Grid>
+		</Grid>
+
+		<Grid Grid.Row="1">
+			<Button Content="Button" HorizontalAlignment="Center" Margin="10"/>
+		</Grid>
     </Grid>
+
 </Page>

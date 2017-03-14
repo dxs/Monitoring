@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Monitoring.Monitoring;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace Monitoring
         public MainPage()
         {
             this.InitializeComponent();
+			Temperature a = new Temperature();
         }
     }
 }
